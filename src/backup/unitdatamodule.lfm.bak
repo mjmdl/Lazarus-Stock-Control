@@ -1,0 +1,124 @@
+object DataMod: TDataMod
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 427
+  HorizontalOffset = 750
+  VerticalOffset = 265
+  Width = 575
+  object Connection: TZConnection
+    ControlsCodePage = cCP_UTF8
+    Properties.Strings = (
+      'RawStringEncoding=DB_CP'
+    )
+    Connected = True
+    DisableSavepoints = False
+    HostName = '127.0.0.1'
+    Port = 6969
+    Database = 'supply'
+    User = 'pguser'
+    Password = 'pgpassword'
+    Protocol = 'postgresql'
+    Left = 56
+    Top = 48
+  end
+  object Transaction: TZTransaction
+    Connection = Connection
+    AutoCommit = True
+    Left = 176
+    Top = 48
+  end
+  object Categories: TZQuery
+    Connection = Connection
+    SQL.Strings = (
+      'SELECT '
+      '    id,'
+      '    description,'
+      '    parent_id,'
+      '    CAST(search_path AS TEXT) AS search_path'
+      'FROM categories'
+    )
+    Params = <>
+    Left = 292
+    Top = 128
+    object Categoriesid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Categoriesdescription: TStringField
+      FieldKind = fkData
+      FieldName = 'description'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object Categoriesparent_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'parent_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Categoriessearch_path: TStringField
+      FieldKind = fkData
+      FieldName = 'search_path'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+  end
+  object Users: TZQuery
+    Connection = Connection
+    SQL.Strings = (
+      'SELECT'
+      '    id,'
+      '    login,'
+      '    password'
+      'FROM users'
+    )
+    Params = <>
+    Left = 292
+    Top = 48
+    object Usersid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Userslogin: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'login'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object Userspassword: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'password'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+end

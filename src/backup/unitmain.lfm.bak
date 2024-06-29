@@ -1,0 +1,23 @@
+object FormMain: TFormMain
+  Left = 0
+  Height = 540
+  Top = 0
+  Width = 960
+  Caption = 'Controle de Estoque'
+  Menu = MenuMain
+  OnCreate = FormCreate
+  object MenuMain: TMainMenu
+    Left = 40
+    Top = 16
+    object MenuItemEntries: TMenuItem
+      Caption = 'Registros'
+      object MenuItemCategories: TMenuItem
+        Caption = 'Categorias'
+        OnClick = MenuItemCategoriesClick
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+    end
+  end
+end

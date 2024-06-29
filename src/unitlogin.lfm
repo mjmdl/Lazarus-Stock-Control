@@ -1,0 +1,84 @@
+object FormLogin: TFormLogin
+  Left = 405
+  Height = 310
+  Top = 250
+  Width = 472
+  Caption = 'Log-In'
+  ClientHeight = 310
+  ClientWidth = 472
+  OnCreate = FormCreate
+  object EditLogin: TLabeledEdit
+    Left = 24
+    Height = 29
+    Top = 104
+    Width = 422
+    Anchors = [akTop, akLeft, akRight]
+    EditLabel.Height = 19
+    EditLabel.Width = 422
+    EditLabel.Caption = 'Usuário'
+    EditLabel.ParentFont = False
+    EditLabel.Font.Height = -16
+    EditLabel.Font.Name = 'Sans'
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 0
+  end
+  object EditPassword: TLabeledEdit
+    Left = 24
+    Height = 26
+    Top = 173
+    Width = 422
+    Anchors = [akTop, akLeft, akRight]
+    EchoMode = emPassword
+    EditLabel.Height = 19
+    EditLabel.Width = 422
+    EditLabel.Caption = 'Senha'
+    EditLabel.ParentFont = False
+    EditLabel.Font.Height = -16
+    EditLabel.Font.Name = 'Sans'
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ParentFont = False
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object PanelTitle: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 472
+    Align = alTop
+    Caption = 'Log-In'
+    Font.Height = -43
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 2
+  end
+  object ButtonOk: TButton
+    Left = 24
+    Height = 41
+    Top = 232
+    Width = 286
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Entrar'
+    Font.Height = -16
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 3
+    OnClick = ButtonOkClick
+  end
+  object ButtonCancel: TButton
+    Left = 320
+    Height = 41
+    Top = 232
+    Width = 126
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Cancelar'
+    Font.Height = -16
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 4
+    OnClick = ButtonCancelClick
+  end
+end
