@@ -13,14 +13,17 @@ type
 
   TFormMain = class(TForm)
     MenuItemProducts: TMenuItem;
-    MenuItemClients: TMenuItem;
+    MenuItemCustomers: TMenuItem;
     MenuItemSuppliers: TMenuItem;
     MenuItemSales: TMenuItem;
     MenuItemCategories: TMenuItem;
     MenuItemEntries: TMenuItem;
     MenuMain: TMainMenu;
-    procedure FormCreate(Sender: TObject);
     procedure MenuItemCategoriesClick(Sender: TObject);
+    procedure MenuItemCustomersClick(Sender: TObject);
+    procedure MenuItemProductsClick(Sender: TObject);
+    procedure MenuItemSalesClick(Sender: TObject);
+    procedure MenuItemSuppliersClick(Sender: TObject);
   private
 
   public
@@ -32,11 +35,11 @@ var
 
 implementation
 
-uses UnitFormCategories;
+uses UnitFormCategories, UnitFormProducts, UnitFormCustomers, UnitFormSuppliers, UnitFormSales;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TFormMain }
+  { TFormMain }
 
 procedure TFormMain.MenuItemCategoriesClick(Sender: TObject);
 begin
@@ -48,10 +51,44 @@ begin
   end;
 end;
 
-procedure TFormMain.FormCreate(Sender: TObject);
+procedure TFormMain.MenuItemCustomersClick(Sender: TObject);
 begin
+  try
+    Application.CreateForm(TFormCustomers, FormCustomers);
+    FormCustomers.ShowModal;
+  finally
+    FreeAndNil(FormCustomers);
+  end;
+end;
 
+procedure TFormMain.MenuItemProductsClick(Sender: TObject);
+begin
+  try
+    Application.CreateForm(TFormProducts, FormProducts);
+    FormProducts.ShowModal;
+  finally
+    FreeAndNil(FormProducts);
+  end;
+end;
+
+procedure TFormMain.MenuItemSalesClick(Sender: TObject);
+begin
+  try
+    Application.CreateForm(TFormSales, FormSales);
+    FormSales.ShowModal;
+  finally
+    FreeAndNil(FormSales);
+  end;
+end;
+
+procedure TFormMain.MenuItemSuppliersClick(Sender: TObject);
+begin
+  try
+    Application.CreateForm(TFormSuppliers, FormSuppliers);
+    FormSuppliers.ShowModal;
+  finally
+    FreeAndNil(FormSuppliers);
+  end;
 end;
 
 end.
-

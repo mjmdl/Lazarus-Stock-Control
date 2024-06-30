@@ -19,7 +19,9 @@ uses
   UnitFormBase,
   UnitDataModule,
   UnitFormCategories,
-  UnitLogin { you can add units after this };
+  UnitLogin, UnitFormProducts,
+UnitFormCustomers, UnitFormSuppliers,
+UnitFormSales { you can add units after this };
 
   {$R *.res}
 
@@ -38,5 +40,7 @@ begin
   end;
 
   Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TFormSuppliers, FormSuppliers);
+  Application.CreateForm(TFormSales, FormSales);
   Application.Run;
 end.

@@ -1,10 +1,10 @@
 object DataMod: TDataMod
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 427
+  Height = 550
   HorizontalOffset = 750
   VerticalOffset = 265
-  Width = 575
+  Width = 395
   object Connection: TZConnection
     ControlsCodePage = cCP_UTF8
     Properties.Strings = (
@@ -36,11 +36,14 @@ object DataMod: TDataMod
       '    parent_id,'
       '    CAST(search_path AS TEXT) AS search_path'
       'FROM categories'
+      'ORDER BY description ASC'
     )
     Params = <>
     Left = 292
-    Top = 128
+    Top = 136
     object Categoriesid: TLongintField
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
       FieldKind = fkData
       FieldName = 'id'
       Index = 0
@@ -50,6 +53,8 @@ object DataMod: TDataMod
       Required = False
     end
     object Categoriesdescription: TStringField
+      DisplayLabel = 'Descrição'
+      DisplayWidth = 25
       FieldKind = fkData
       FieldName = 'description'
       Index = 1
@@ -60,6 +65,8 @@ object DataMod: TDataMod
       Size = 50
     end
     object Categoriesparent_id: TLongintField
+      DisplayLabel = 'ID Parente'
+      DisplayWidth = 5
       FieldKind = fkData
       FieldName = 'parent_id'
       Index = 2
@@ -69,6 +76,7 @@ object DataMod: TDataMod
       Required = False
     end
     object Categoriessearch_path: TStringField
+      DisplayLabel = 'Caminho de Busca'
       FieldKind = fkData
       FieldName = 'search_path'
       Index = 3
@@ -134,6 +142,242 @@ object DataMod: TDataMod
       ReadOnly = False
       Required = True
       Size = 255
+    end
+  end
+  object Products: TZQuery
+    Connection = Connection
+    SQL.Strings = (
+      'SELECT'
+      '    product.id,'
+      '    product.description AS description,'
+      '    product.price,'
+      '    product.in_stock,'
+      '    product.category_id'
+      'FROM products product'
+      'ORDER BY product.description ASC'
+    )
+    Params = <>
+    Left = 292
+    Top = 216
+    object ProductsId: TLongintField
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ProductsDescription: TStringField
+      DisplayLabel = 'Descrição'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'description'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object ProductsPrice: TFloatField
+      DisplayLabel = 'Preço (R$)'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'price'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ProductsInStock: TLongintField
+      DisplayLabel = 'Estoque'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'in_stock'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ProductsCategoryId: TLongintField
+      DisplayLabel = 'ID Categoria'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'category_id'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object Customers: TZQuery
+    Connection = Connection
+    SQL.Strings = (
+      'SELECT'
+      '    id,'
+      '    name,'
+      '    cpf_cnpj'
+      'FROM customers'
+      'ORDER BY name ASC'
+    )
+    Params = <>
+    Left = 292
+    Top = 304
+    object Customersid: TZIntegerField
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Customersname: TZRawStringField
+      DisplayLabel = 'Nome'
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'name'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object Customerscpf_cnpj: TZRawStringField
+      DisplayLabel = 'CPF/CNPJ'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+  end
+  object Suppliers: TZQuery
+    Connection = Connection
+    SQL.Strings = (
+      'SELECT'
+      '    id,'
+      '    name,'
+      '    cnpj'
+      'FROM suppliers'
+      'ORDER BY name ASC'
+    )
+    Params = <>
+    Left = 292
+    Top = 392
+    object Suppliersid: TZIntegerField
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Suppliersname: TZRawStringField
+      DisplayLabel = 'Nome'
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'name'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object Supplierscnpj: TZRawStringField
+      DisplayLabel = 'CNPJ'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'cnpj'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+  end
+  object Sales: TZQuery
+    Connection = Connection
+    SQL.Strings = (
+      'SELECT'
+      '    id,'
+      '    customer_id,'
+      '    supplier_id,'
+      '    total_amount,'
+      '    DATE(date) AS date'
+      'FROM sales'
+      'ORDER BY date DESC'
+    )
+    Params = <>
+    Left = 292
+    Top = 480
+    object Salesid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Salescustomer_id: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'customer_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object Salessupplier_id: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'supplier_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object Salestotal_amount: TZBCDField
+      FieldKind = fkData
+      FieldName = 'total_amount'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 8
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object Salesdate: TZDateTimeField
+      FieldKind = fkData
+      FieldName = 'date'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
     end
   end
 end

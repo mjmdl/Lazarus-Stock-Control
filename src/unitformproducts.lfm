@@ -1,0 +1,131 @@
+inherited FormProducts: TFormProducts
+  Height = 365
+  Width = 606
+  ClientHeight = 365
+  ClientWidth = 606
+  OnCreate = FormCreate
+  inherited FormTitle: TPanel
+    Width = 606
+    Caption = 'Cadastro de Produtos'
+  end
+  inherited FormBand: TPanel
+    Width = 606
+    Color = 2125982
+  end
+  inherited PageControl: TPageControl
+    Height = 265
+    Width = 606
+    ActivePage = TabEdit
+    TabIndex = 1
+    inherited TabList: TTabSheet
+      ClientHeight = 235
+      ClientWidth = 596
+      inherited GridBase: TDBGrid
+        Height = 235
+        Width = 596
+        AutoFillColumns = True
+      end
+    end
+    inherited TabEdit: TTabSheet
+      ClientHeight = 235
+      ClientWidth = 596
+      inherited ButtonSave: TBitBtn
+        Left = 469
+        Top = 160
+      end
+      inherited ButtonCancel: TBitBtn
+        Left = 357
+        Top = 160
+      end
+      object EditId: TDBEdit[2]
+        Left = 16
+        Height = 28
+        Top = 48
+        Width = 127
+        DataField = 'id'
+        DataSource = DataSourceBase
+        ReadOnly = True
+        MaxLength = 0
+        TabOrder = 2
+      end
+      object LabelId: TLabel[3]
+        Left = 20
+        Height = 16
+        Top = 24
+        Width = 14
+        Caption = 'ID'
+      end
+      object EditPrice: TDBEdit[4]
+        Left = 157
+        Height = 28
+        Top = 48
+        Width = 127
+        DataField = 'price'
+        DataSource = DataSourceBase
+        MaxLength = 0
+        TabOrder = 3
+      end
+      object LabelPrice: TLabel[5]
+        Left = 157
+        Height = 16
+        Top = 24
+        Width = 34
+        Caption = 'Preço'
+      end
+      object EditStock: TDBEdit[6]
+        Left = 301
+        Height = 28
+        Top = 48
+        Width = 127
+        DataField = 'in_stock'
+        DataSource = DataSourceBase
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object LabelStock: TLabel[7]
+        Left = 301
+        Height = 16
+        Top = 24
+        Width = 50
+        Caption = 'Estoque'
+      end
+      object EditDescription: TDBEdit[8]
+        Left = 20
+        Height = 28
+        Top = 112
+        Width = 556
+        DataField = 'description'
+        DataSource = DataSourceBase
+        MaxLength = 0
+        TabOrder = 5
+      end
+      object LabelDescription: TLabel[9]
+        Left = 20
+        Height = 16
+        Top = 88
+        Width = 58
+        Caption = 'Descrição'
+      end
+      object EditCategoryId: TDBEdit[10]
+        Left = 449
+        Height = 28
+        Top = 48
+        Width = 127
+        DataField = 'category_id'
+        DataSource = DataSourceBase
+        MaxLength = 0
+        TabOrder = 6
+      end
+      object LabelCategoryId: TLabel[11]
+        Left = 449
+        Height = 16
+        Top = 24
+        Width = 75
+        Caption = 'ID Categoria'
+      end
+    end
+  end
+  inherited DataSourceBase: TDataSource
+    DataSet = DataMod.Products
+  end
+end

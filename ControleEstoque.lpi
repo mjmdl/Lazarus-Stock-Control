@@ -88,6 +88,38 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnitLogin"/>
       </Unit>
+      <Unit>
+        <Filename Value="src/unitformproducts.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormProducts"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitFormProducts"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/unitformcustomers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormCustomers"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitFormCustomers"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/unitformsuppliers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormSuppliers"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitFormSuppliers"/>
+      </Unit>
+      <Unit>
+        <Filename Value="src/unitformsales.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormSales"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitFormSales"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

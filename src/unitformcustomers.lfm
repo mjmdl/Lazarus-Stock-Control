@@ -1,0 +1,97 @@
+inherited FormCustomers: TFormCustomers
+  Height = 367
+  Width = 571
+  ClientHeight = 367
+  ClientWidth = 571
+  OnCreate = FormCreate
+  inherited FormTitle: TPanel
+    Width = 571
+    Caption = 'Cadastro de Clientes'
+  end
+  inherited FormBand: TPanel
+    Width = 571
+    Color = 12501042
+  end
+  inherited PageControl: TPageControl
+    Height = 267
+    Width = 571
+    ActivePage = TabEdit
+    TabIndex = 1
+    inherited TabList: TTabSheet
+      ClientHeight = 237
+      ClientWidth = 561
+      inherited GridBase: TDBGrid
+        Height = 237
+        Width = 561
+        AutoFillColumns = True
+      end
+    end
+    inherited TabEdit: TTabSheet
+      ClientHeight = 237
+      ClientWidth = 561
+      inherited ButtonSave: TBitBtn
+        Left = 440
+        Top = 161
+      end
+      inherited ButtonCancel: TBitBtn
+        Left = 328
+        Top = 161
+      end
+      object LabelId: TLabel[2]
+        Left = 16
+        Height = 16
+        Top = 24
+        Width = 14
+        Caption = 'ID'
+      end
+      object EditId: TDBEdit[3]
+        Left = 16
+        Height = 28
+        Top = 48
+        Width = 144
+        DataField = 'id'
+        DataSource = DataSourceBase
+        ReadOnly = True
+        MaxLength = 0
+        TabOrder = 2
+      end
+      object EditCpfCnpj: TDBEdit[4]
+        Left = 176
+        Height = 28
+        Top = 48
+        Width = 368
+        DataField = 'cpf_cnpj'
+        DataSource = DataSourceBase
+        MaxLength = 0
+        TabOrder = 3
+      end
+      object LabelCpfCnpj: TLabel[5]
+        Left = 176
+        Height = 16
+        Top = 24
+        Width = 59
+        Caption = 'CPF/CNPJ'
+      end
+      object EditName: TDBEdit[6]
+        Left = 16
+        Height = 28
+        Top = 112
+        Width = 528
+        DataField = 'name'
+        DataSource = DataSourceBase
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object LabelName: TLabel[7]
+        Left = 16
+        Height = 16
+        Top = 88
+        Width = 36
+        Caption = 'Nome'
+      end
+    end
+  end
+  inherited DataSourceBase: TDataSource
+    DataSet = DataMod.Customers
+  end
+end

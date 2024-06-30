@@ -5,7 +5,6 @@ object FormMain: TFormMain
   Width = 960
   Caption = 'Controle de Estoque'
   Menu = MenuMain
-  OnCreate = FormCreate
   object MenuMain: TMainMenu
     Left = 40
     Top = 16
@@ -17,15 +16,19 @@ object FormMain: TFormMain
       end
       object MenuItemProducts: TMenuItem
         Caption = 'Produtos'
+        OnClick = MenuItemProductsClick
       end
-      object MenuItemClients: TMenuItem
+      object MenuItemCustomers: TMenuItem
         Caption = 'Clientes'
+        OnClick = MenuItemCustomersClick
       end
       object MenuItemSuppliers: TMenuItem
         Caption = 'Fornecedores'
+        OnClick = MenuItemSuppliersClick
       end
       object MenuItemSales: TMenuItem
         Caption = 'Vendas'
+        OnClick = MenuItemSalesClick
       end
     end
   end
